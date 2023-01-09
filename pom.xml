@@ -10,7 +10,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
   <dependencies>
 		<!-- <dependency>
@@ -21,8 +21,7 @@
 <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-web</artifactId>
-    <version>5.2.7.RELEASE</version>
-</dependency>
+    </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
