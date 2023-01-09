@@ -7,4 +7,9 @@ public class Book {
 		return null;
 	}
 
+	public Author getAuthor() {
+		
+		return null;
+	}
+
 }
