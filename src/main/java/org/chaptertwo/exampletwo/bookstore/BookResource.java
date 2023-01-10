@@ -1,8 +1,10 @@
 package org.chaptertwo.exampletwo.bookstore;
 
 import java.net.URI;
+import java.util.Objects;
 
 import javax.inject.Inject;
+import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -11,6 +13,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.container.ResourceContext;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -63,8 +66,16 @@ public class BookResource {
 	@PUT
 	@Path("/{isbn}")
 	public Response update(@PathParam("isbn") String isbn, Book book) {
-		bookshelf.update(isbn, book);
-		return Response.ok().build();
+		
+		if (!Objects.equals(isbn, book.getIsbn())) {
+			 throw new WebApplicationException(
+			"ISBN must match path parameter.",
+			Response.Status.BAD_REQUEST);
+			}
+			// 	bookshelf.update(isbn, book);
+			// 	return Response.ok().build();
+		return null;
+			 
 	}
 
 	@DELETE
