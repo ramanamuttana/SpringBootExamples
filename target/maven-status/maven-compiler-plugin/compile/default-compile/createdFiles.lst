@@ -1,0 +1,16 @@
+org/chaptertwo/exampletwo/bookstore/EntityNotFoundException.class
+org/chaptertwo/exampletwo/bookstore/PersistenceException.class
+org/chaptertwo/exampletwo/bookstore/Bookshelf.class
+org/chaptertwo/exampletwo/bookstore/LibraryServiceClient.class
+org/chaptertwo/exampletwo/bookstore/Author.class
+org/chaptertwo/exampleone/temperature/Temperature.class
+org/chaptertwo/exampletwo/bookstore/PersistenceExceptionMapper.class
+org/chaptertwo/exampletwo/bookstore/AuthorResource.class
+org/chaptertwo/exampleone/ServletInitializer.class
+org/chaptertwo/exampletwo/bookstore/BookResource.class
+org/chaptertwo/exampleone/temperature/TemperatureScale.class
+org/chaptertwo/exampletwo/bookstore/Book.class
+org/chaptertwo/exampleone/DemoApplication.class
+org/chaptertwo/exampleone/temperature/TemperatureService.class
+org/chaptertwo/exampleone/temperature/TemperatureController.class
+org/chaptertwo/exampletwo/bookstore/LoanResource.class

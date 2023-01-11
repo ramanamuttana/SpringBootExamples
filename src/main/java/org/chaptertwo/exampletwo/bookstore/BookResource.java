@@ -4,7 +4,6 @@ import java.net.URI;
 import java.util.Objects;
 
 import javax.inject.Inject;
-import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -21,6 +20,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
 import org.springframework.web.context.annotation.RequestScope;
+
 
 @Path("books")
 @RequestScope
