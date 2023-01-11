@@ -1,4 +1,4 @@
-package org.chaptertwo.exampletwo.bookstore;
+package org.chaptertwo.exampletwo.bookstore.client;
 
 
 import java.util.logging.Logger;
