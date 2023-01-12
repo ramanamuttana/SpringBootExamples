@@ -1,5 +1,6 @@
-package org.chaptertwo.exampletwo.bookstore.client;
+package org.chaptertwo.exampletwo.bookstore.clientsideTest;
 
+import org.chaptertwo.exampletwo.bookstore.client.VersionResource;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.JerseyClient;
 import org.glassfish.jersey.jsonb.JsonBindingFeature;

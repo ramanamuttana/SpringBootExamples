@@ -74,8 +74,7 @@ public class BookResource {
 			}
 			// 	bookshelf.update(isbn, book);
 			// 	return Response.ok().build();
-		return null;
-			 
+		return null;	 
 	}
 
 	@DELETE

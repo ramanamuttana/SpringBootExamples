@@ -47,7 +47,15 @@ public class Bookshelf {
 
 	}
 
+	/*
+	 * delete the isbn value 
+	 */
 	public void delete(String isbn) {
+		findAll()
+		.stream()
+		.filter(c-> c.getISBN().equals(isbn))
+		.collect(Collectors.toList())
+		.remove(0);
 
 	}
 
