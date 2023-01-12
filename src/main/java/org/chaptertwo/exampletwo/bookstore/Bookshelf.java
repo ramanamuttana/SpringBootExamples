@@ -1,38 +1,54 @@
 package org.chaptertwo.exampletwo.bookstore;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Bookshelf {
 
-	public Object findAll() {
-		
-		return null;
+	/*
+	 * get all the books from the database
+	 */
+	public List<Book> findAll() {
+
+		List<Book> booksCollection = new ArrayList<Book>();
+
+		return booksCollection;
 	}
 
+	/*
+	 * stream all the books , filter isbn , collect that matches
+	 */
 	public Book findByISBN(String isbn) {
-		
-		Book book = null;
-		
+
+		Book book = (Book) findAll().stream().filter(c -> c.getISBN().equals(isbn)).collect(Collectors.toList());
 		return book;
 	}
 
+	/*
+	 * save the values in the database
+	 * incomplete
+	 */
 	public void create(Book book) {
-	
-		
+		book.getAuthor();
+		book.getISBN();
+
 	}
 
 	public boolean exists(Object isbn) {
-	
+		Book book = (Book) findAll().stream().filter(c -> c.getISBN().equals(isbn)).collect(Collectors.toList());
+		if (book != null) {
+			return true;
+		}
 		return false;
 	}
 
 	public void update(String isbn, Book book) {
-	
-		
+
 	}
 
 	public void delete(String isbn) {
-	
-		
+
 	}
 
 }

@@ -1,15 +1,30 @@
 package org.chaptertwo.exampletwo.bookstore;
 
 public class Book {
-
-	public Object getIsbn() {
+	
+	
+	private String isbn;
+	private Author author ;
+	
+	public Book() {
 		
-		return null;
+	}
+	
+	public void setISBN(String isbn) {
+		this.isbn=isbn;
+	}
+
+	public String getISBN() {
+		return isbn;
+	}
+	
+	public void setAuthor(Author author ) {
+		this.author=author;
 	}
 
 	public Author getAuthor() {
 		
-		return null;
+		return author;
 	}
 
 }

@@ -54,12 +54,12 @@ public class BookResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response create(Book book) {
-		if (bookshelf.exists(book.getIsbn())) {
+		if (bookshelf.exists(book.getISBN())) {
 			return Response.status(Response.Status.CONFLICT).build();
 		}
 		bookshelf.create(book);
 		URI location = UriBuilder.fromResource(BookResource.class).path("/{isbn}")
-				.resolveTemplate("isbn", book.getIsbn()).build();
+				.resolveTemplate("isbn", book.getISBN()).build();
 		return Response.created(location).build();
 	}
 
@@ -67,7 +67,7 @@ public class BookResource {
 	@Path("/{isbn}")
 	public Response update(@PathParam("isbn") String isbn, Book book) {
 		
-		if (!Objects.equals(isbn, book.getIsbn())) {
+		if (!Objects.equals(isbn, book.getISBN())) {
 			 throw new WebApplicationException(
 			"ISBN must match path parameter.",
 			Response.Status.BAD_REQUEST);
