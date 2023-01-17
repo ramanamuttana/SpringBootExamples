@@ -1,17 +1,22 @@
 package org.chaptertwo.exampletwo.bookstore;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Bookshelf {
+import javax.inject.Inject;
 
+public class Bookshelf {
+	
+
+	@Inject 
+	BookData bookdata;
 	/*
 	 * get all the books from the database
 	 */
 	public List<Book> findAll() {
+		
 
-		List<Book> booksCollection = new ArrayList<Book>();
+		List<Book> booksCollection = bookdata.getAllBooks();
 
 		return booksCollection;
 	}
@@ -21,6 +26,7 @@ public class Bookshelf {
 	 */
 	public Book findByISBN(String isbn) {
 
+		System.out.println(isbn+" isbn value ");
 		Book book = (Book) findAll().stream().filter(c -> c.getISBN().equals(isbn)).collect(Collectors.toList());
 		return book;
 	}
