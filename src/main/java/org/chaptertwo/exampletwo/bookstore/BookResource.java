@@ -22,7 +22,7 @@ import javax.ws.rs.core.UriBuilder;
 import org.springframework.web.context.annotation.RequestScope;
 
 
-@Path("books")
+@Path("/books")
 @RequestScope
 public class BookResource {
 
