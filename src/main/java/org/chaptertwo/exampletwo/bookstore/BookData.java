@@ -3,6 +3,8 @@ package org.chaptertwo.exampletwo.bookstore;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+@Repository
 public class BookData {
 	
 	List<Book> books=new ArrayList<Book>();

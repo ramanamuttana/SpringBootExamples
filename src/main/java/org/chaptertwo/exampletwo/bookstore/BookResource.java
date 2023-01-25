@@ -19,13 +19,14 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.annotation.RequestScope;
 
 
-@Path("/books")
-@RequestScope
+
 @RestController
+@RequestMapping(path="/books")
 public class BookResource {
 
 	@Inject
@@ -40,10 +41,11 @@ public class BookResource {
 		return loanResource;
 	}
 
-	@GET
+	@GetMapping 
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response books() {
 		return Response.ok(bookshelf.findAll()).build();
+	//	return Response.ok("Hello").build();
 	}
 
 	@GET

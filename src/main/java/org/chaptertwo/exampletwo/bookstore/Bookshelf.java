@@ -5,6 +5,9 @@ import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class Bookshelf {
 	
 

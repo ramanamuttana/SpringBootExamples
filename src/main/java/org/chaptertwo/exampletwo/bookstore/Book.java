@@ -1,8 +1,6 @@
 package org.chaptertwo.exampletwo.bookstore;
 
-import org.springframework.stereotype.Component;
 
-@Component
 public class Book {
 	
 	
