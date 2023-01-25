@@ -19,11 +19,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.annotation.RequestScope;
 
 
 @Path("/books")
 @RequestScope
+@RestController
 public class BookResource {
 
 	@Inject
