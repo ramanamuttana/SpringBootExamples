@@ -6,7 +6,6 @@ import java.util.Objects;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -41,6 +40,13 @@ public class BookResource {
 		return Response.ok(bookshelf.findAll()).build();
 	//	return Response.ok("Hello").build();
 	}
+	
+	@GetMapping("{isbn}")
+	@Produces(MediaType.APPLICATION_JSON)	
+	public Response get(@PathVariable("isbn") String isbn) {
+		Book book = bookshelf.findByISBN(isbn);
+		return Response.ok(book).build();
+	}
 
 	@Path("/{isbn}/loans")
 	public LoanResource loans(@PathParam("isbn") String isbn) {
@@ -49,13 +55,6 @@ public class BookResource {
 		return loanResource;
 	}
 
-
-	@GetMapping("{isbn}")
-	@Produces(MediaType.APPLICATION_JSON)	
-	public Response get(@PathVariable("isbn") String isbn) {
-		Book book = bookshelf.findByISBN(isbn);
-		return Response.ok(book).build();
-	}
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)

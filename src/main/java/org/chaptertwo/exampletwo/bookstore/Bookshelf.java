@@ -36,12 +36,12 @@ public class Bookshelf {
 	}
 
 	/*
-	 * save the values in the database
+	 * save the new values in the database
 	 * incomplete
 	 */
 	public void create(Book book) {
-		book.getAuthor();
-		book.getISBN();
+		book.setAuthor(book.getAuthor());
+		book.setISBN(book.getISBN());
 
 	}
 
