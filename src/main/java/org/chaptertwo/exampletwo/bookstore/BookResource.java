@@ -20,6 +20,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,6 +34,13 @@ public class BookResource {
 	private Bookshelf bookshelf;
 	@Context
 	private ResourceContext context;
+	
+	@GetMapping 
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response books() {
+		return Response.ok(bookshelf.findAll()).build();
+	//	return Response.ok("Hello").build();
+	}
 
 	@Path("/{isbn}/loans")
 	public LoanResource loans(@PathParam("isbn") String isbn) {
@@ -41,16 +49,10 @@ public class BookResource {
 		return loanResource;
 	}
 
-	@GetMapping 
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response books() {
-		return Response.ok(bookshelf.findAll()).build();
-	//	return Response.ok("Hello").build();
-	}
 
-	@GET
-	@Path("/{isbn}")
-	public Response get(@PathParam("isbn") String isbn) {
+	@GetMapping("{isbn}")
+	@Produces(MediaType.APPLICATION_JSON)	
+	public Response get(@PathVariable("isbn") String isbn) {
 		Book book = bookshelf.findByISBN(isbn);
 		return Response.ok(book).build();
 	}

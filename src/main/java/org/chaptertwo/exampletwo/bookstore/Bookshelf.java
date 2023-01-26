@@ -13,6 +13,7 @@ public class Bookshelf {
 
 	@Inject 
 	BookData bookdata;
+	
 	/*
 	 * get all the books from the database
 	 */
@@ -29,8 +30,8 @@ public class Bookshelf {
 	 */
 	public Book findByISBN(String isbn) {
 
-		System.out.println(isbn+" isbn value ");
-		Book book = (Book) findAll().stream().filter(c -> c.getISBN().equals(isbn)).collect(Collectors.toList());
+		Book book = (Book) findAll().stream().filter(c -> c.getISBN().equals(isbn)).findAny()                                      // If 'findAny' then return found
+                .orElse(null);
 		return book;
 	}
 
