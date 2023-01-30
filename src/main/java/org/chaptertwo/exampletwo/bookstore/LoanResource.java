@@ -1,22 +1,32 @@
 package org.chaptertwo.exampletwo.bookstore;
 
+import java.util.List;
+
+import javax.inject.Inject;
+
 public class LoanResource {
 	
-	private String isbn;
+	@Inject
+	Book book;
+	
+	List<Book> loanBooksCollection;
+	
+	public void addtoLoan() {
+		loanBooksCollection.add(book);
+	}
 	
 
-	public void setIsbn(String isbn) {
-		this.isbn=isbn;
+	
+	public String verifyLoanDetails(String isbn) {
 		
-	}
-	
-	public String getISBN() {
-	 return isbn;	
-	}
-
-	@Override
-	public String toString() {
-		return "LoanResource [isbn=" + isbn + "]";
+		Book book = loanBooksCollection.stream().filter(c -> c.getISBN().equals(isbn)).findAny()    // If 'findAny' then return found
+                .orElse(null);
+		if(book==null) {
+			return " the book is not in  the loan ";
+		}else
+		return " This book is in the loan ";
+		
+		
 	}
 
 }

@@ -50,7 +50,6 @@ public class BookResource {
 	@Path("{isbn}/loans")
 	public Response loans(@PathParam("isbn") String isbn) {
 		LoanResource loanResource = context.getResource(LoanResource.class);
-		loanResource.setIsbn(isbn);
 		return Response.ok(loanResource).build();
 	}
 
