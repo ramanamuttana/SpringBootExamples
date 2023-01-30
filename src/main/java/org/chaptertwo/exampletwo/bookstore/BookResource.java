@@ -6,6 +6,7 @@ import java.util.Objects;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -22,8 +23,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-
 
 @RestController
 @RequestMapping(path="/books")
@@ -48,11 +47,11 @@ public class BookResource {
 		return Response.ok(book).build();
 	}
 
-	@Path("/{isbn}/loans")
-	public LoanResource loans(@PathParam("isbn") String isbn) {
+	@Path("{isbn}/loans")
+	public Response loans(@PathParam("isbn") String isbn) {
 		LoanResource loanResource = context.getResource(LoanResource.class);
 		loanResource.setIsbn(isbn);
-		return loanResource;
+		return Response.ok(loanResource).build();
 	}
 
 
