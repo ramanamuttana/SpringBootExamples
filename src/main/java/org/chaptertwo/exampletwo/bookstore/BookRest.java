@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path="/books")
-public class BookResource {
+public class BookRest {
 
 	@Inject
 	private Bookshelf bookshelf;
@@ -60,7 +60,7 @@ public class BookResource {
 			return Response.status(Response.Status.CONFLICT).build();
 		}
 		bookshelf.create(book);
-		URI location = UriBuilder.fromResource(BookResource.class).path("/{isbn}")
+		URI location = UriBuilder.fromResource(BookRest.class).path("/{isbn}")
 				.resolveTemplate("isbn", book.getISBN()).build();
 		return Response.created(location).build();
 	}
