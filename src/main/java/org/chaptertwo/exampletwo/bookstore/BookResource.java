@@ -1,7 +1,6 @@
 package org.chaptertwo.exampletwo.bookstore;
 
 import java.net.URI;
-import java.util.List;
 import java.util.Objects;
 
 import javax.inject.Inject;
@@ -37,13 +36,6 @@ public class BookResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response books() {
 		return Response.ok(bookshelf.findAll()).build();
-	//	return Response.ok("Hello").build();
-	}
-	
-	@GetMapping 
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Book> getBooks() {
-		return bookshelf.findAll();
 	//	return Response.ok("Hello").build();
 	}
 
