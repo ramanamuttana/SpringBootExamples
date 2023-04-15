@@ -91,7 +91,12 @@
     <artifactId>jersey-rx-client-rxjava2</artifactId>
     </dependency>
 
-	</dependencies>
+  	<dependency>
+  		<groupId>org.acme</groupId>
+  		<artifactId>code-with-quarkus</artifactId>
+  		<version>1.0.0-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 
 	<build>
 		<plugins>

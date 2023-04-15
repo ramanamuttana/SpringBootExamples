@@ -1,6 +1,7 @@
 package org.chaptertwo.exampletwo.bookstore;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Objects;
 
 import javax.inject.Inject;
@@ -25,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path="/books")
-public class BookRest {
+public class BookResource {
 
 	@Inject
 	private Bookshelf bookshelf;
@@ -38,6 +39,15 @@ public class BookRest {
 		return Response.ok(bookshelf.findAll()).build();
 	//	return Response.ok("Hello").build();
 	}
+	
+	@GetMapping 
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Book> getBooks() {
+		return bookshelf.findAll();
+	//	return Response.ok("Hello").build();
+	}
+
+	
 	
 	@GetMapping("{isbn}")
 	@Produces(MediaType.APPLICATION_JSON)	
@@ -60,7 +70,7 @@ public class BookRest {
 			return Response.status(Response.Status.CONFLICT).build();
 		}
 		bookshelf.create(book);
-		URI location = UriBuilder.fromResource(BookRest.class).path("/{isbn}")
+		URI location = UriBuilder.fromResource(BookResource.class).path("/{isbn}")
 				.resolveTemplate("isbn", book.getISBN()).build();
 		return Response.created(location).build();
 	}

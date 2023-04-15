@@ -2,7 +2,6 @@ package org.chaptertwo.exampletwo.bookstore;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
@@ -30,7 +29,7 @@ public class Bookshelf {
 	 */
 	public Book findByISBN(String isbn) {
 
-		Book book = (Book) findAll().stream().filter(c -> c.getISBN().equals(isbn)).findAny()                                      // If 'findAny' then return found
+		Book book = (Book) findAll().stream().filter(c -> c.getISBN().equals(isbn)).findAny()     // If 'findAny' then return found
                 .orElse(null);
 		return book;
 	}
