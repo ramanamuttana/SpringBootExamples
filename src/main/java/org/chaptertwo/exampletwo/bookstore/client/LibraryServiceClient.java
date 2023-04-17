@@ -5,18 +5,23 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+
 import org.chaptertwo.exampletwo.bookstore.Book;
 
+import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
+
 public class LibraryServiceClient {
+	
 	private static final Logger LOGGER = Logger.getAnonymousLogger();
 
 	public static void main(String[] args) {
         // construct a JAX-RS client using the builder
-		Client client = Client.create();
+		Client client = ClientBuilder.newClient().register(JacksonJsonProvider.class);
         // construct a web target for the library service
 		WebTarget api = client.target("http://localhost:8080").path("/library-service/api");
 		
