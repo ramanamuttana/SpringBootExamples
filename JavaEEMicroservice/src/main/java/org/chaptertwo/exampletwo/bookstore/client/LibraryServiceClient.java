@@ -21,17 +21,17 @@ public class LibraryServiceClient {
         // construct a web target for the library service
 		WebTarget api = client.target("http://localhost:8080").path("/library-service/api");
 		
-		// get each book through client 
+	// get each book through client 
 		
 
-	    LOGGER.log(Level.INFO, "Get list of books.");
-	    List<Book> books =  api.path("/books").request()
-			.accept(MediaType.APPLICATION_JSON).get(bookList());
-			books.forEach(book -> LOGGER.log(Level.INFO, "{0}", book));
+	LOGGER.log(Level.INFO, "Get list of books.");
+	List<Book> books =  api.path("/books").request()
+		.accept(MediaType.APPLICATION_JSON).get(bookList());
+		books.forEach(book -> LOGGER.log(Level.INFO, "{0}", book));
 			
 	}
-			private static GenericType<List<Book>> bookList() {
-				return new GenericType<List<Book>>() {
-				};
+	private static GenericType<List<Book>> bookList() {
+	return new GenericType<List<Book>>() {
+	};
 	}
 	}
