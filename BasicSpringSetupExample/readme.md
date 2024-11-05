@@ -1,1 +1,1 @@
-1. Basic Spring boot with gradle Project 
+1. Basic Spring boot with gradle 
