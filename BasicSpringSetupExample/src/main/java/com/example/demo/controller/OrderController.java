@@ -35,6 +35,13 @@ public class OrderController {
         Optional<Order> order = orderService.getOrderById(id);
         return order.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<Order> updateOrder(@PathVariable Long id, @Valid @RequestBody Order order) {
+          Optional<Order> updatedOrder = orderService.updateOrder(id, order);
+           return updatedOrder.map(ResponseEntity::ok)
+                 .orElseGet(() -> ResponseEntity.notFound().build());
+     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
