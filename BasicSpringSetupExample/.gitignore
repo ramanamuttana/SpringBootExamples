@@ -1,5 +1,5 @@
 # macOS
-.DS_Store
+.DS_Store/
 
 # Logs
 *.log
@@ -11,6 +11,4 @@ node_modules/
 *.class
 target/
 
-# python
 
-# test2
