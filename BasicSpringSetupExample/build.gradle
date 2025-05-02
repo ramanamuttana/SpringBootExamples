@@ -20,6 +20,17 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// Jakarta Bean Validation API
+	implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
+
+	// Hibernate Validator (reference implementation)
+	implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
+
+	implementation 'com.h2database:h2'
+
+	// Required for EL (Expression Language) if using message interpolation
+	implementation 'org.glassfish:jakarta.el:4.0.2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }

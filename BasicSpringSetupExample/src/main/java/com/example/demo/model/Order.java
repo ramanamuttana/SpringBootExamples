@@ -1,10 +1,11 @@
-package com.example.orderservice.model;
+package com.example.demo.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 @Entity
+@Table(name = "orders")
 public class Order {
 
     @Id

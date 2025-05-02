@@ -1,7 +1,8 @@
-package com.example.orderservice.service;
+package com.example.demo.service;
 
-import com.example.orderservice.model.Order;
-import com.example.orderservice.repository.OrderRepository;
+import com.example.demo.model.Order;
+import com.example.demo.repository.OrderRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,9 @@ public class OrderService {
 
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);
+    }
+
+    public Optional<Order> updateOrder(Long id, Order order) {
+        return Optional.of(orderRepository.save(order));
     }
 }
