@@ -9,3 +9,4 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 # docker build --build-arg JAR_FILE=demo-0.0.1-SNAPSHOT.jar -t myapp .
 #1.the above  command should be run from terminal
 #2. Before running make sure docker engine is running
+#3. It will create docker image with the name as myapp
